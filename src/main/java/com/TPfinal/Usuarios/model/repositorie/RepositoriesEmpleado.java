@@ -35,6 +35,14 @@ public class RepositoriesEmpleado implements GenericRepository<Empleado,String> 
 
     @Override
     public boolean update(Empleado data) {
+        for (Empleado empleado : lista) {
+            if (empleado.equals(data)) {
+                lista.remove(empleado);
+                lista.add(data);
+                return  true;
+            }
+        }
+
         return false;
     }
 
