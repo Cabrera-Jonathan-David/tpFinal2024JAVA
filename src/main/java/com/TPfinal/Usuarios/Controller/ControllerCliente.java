@@ -1,7 +1,10 @@
 package com.TPfinal.Usuarios.Controller;
 
 import com.TPfinal.Excepciones.EmptyDataExcepcion;
+import com.TPfinal.Productos.model.entity.Alimento;
+import com.TPfinal.Productos.model.entity.Electrodomestico;
 import com.TPfinal.Productos.model.entity.Producto;
+import com.TPfinal.Productos.view.ProductoViews;
 import com.TPfinal.Usuarios.model.entity.Cliente;
 import com.TPfinal.Usuarios.model.repositorie.RepositoriesCliente;
 import com.TPfinal.Usuarios.view.ViewCliente;
@@ -13,6 +16,7 @@ public class ControllerCliente {
 
     private ViewCliente viewCliente;
     private RepositoriesCliente repositorioCliente;
+    ProductoViews productoViews;
 
     public ControllerCliente(ViewCliente viewCliente, RepositoriesCliente repositorioCliente) {
         this.viewCliente = viewCliente;
@@ -86,14 +90,15 @@ public class ControllerCliente {
     public void mostrarHistorialCompras(Cliente cliente) {
 
         System.out.println("Historial Compras");
-        for (Map.Entry<String, Carrito> entry : cliente.getHistorialCompras()){
-
+        for (Map.Entry<Integer, Carrito> entry : cliente.getHistorialCompras().entrySet()){
             System.out.println("---------------------------------");
             System.out.println("Id: " + entry.getKey());
             for(Producto producto : entry.getValue().getListaProductos()){
-
-
-
+                if (producto instanceof Electrodomestico) {
+                    productoViews.mostrar((Electrodomestico) producto);
+                }else{
+                    productoViews.mostrar((Alimento) producto);
+                }
             }
             System.out.println("Total pagado: " + entry.getValue().getPrecioTotal());
 

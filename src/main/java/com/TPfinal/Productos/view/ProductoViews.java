@@ -10,14 +10,16 @@ public class ProductoViews {
  Scanner scann= new Scanner(System.in);
     public void mostrar(Alimento alimento){
 
-        System.out.println("=================PERECEDERO================");
+        System.out.println("=================ALIMENTO================");
         System.out.println("Nombre: " + alimento.getNombre());
+        System.out.println("Precio: " + alimento.getPrecio());
         System.out.println("Vencimiento " + alimento.getVencimiento());
         System.out.println("===========================================");
     }
     public void mostrar(Electrodomestico electrodomestico){
         System.out.println("=================ELECTRODOMESTICO================");
         System.out.println("Nombre: " + electrodomestico.getNombre());
+        System.out.println("Precio: " + electrodomestico.getPrecio());
         System.out.println("Garantia " + electrodomestico.getTiempoGarantia()+ " Años");
         System.out.println("=================================================");
     }
