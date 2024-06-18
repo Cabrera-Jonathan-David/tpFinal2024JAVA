@@ -12,12 +12,10 @@ public class ViewCliente {
 
     Scanner scan = new Scanner(System.in);
 
-    public Cliente crearCliente(String email) throws EmptyDataExcepcion {
+    public Cliente crearCliente(String email, String nombreUs) throws EmptyDataExcepcion {
 
         System.out.println("\n---------------------------------------------------------");
         System.out.println("-------------------CREACION DE USUARIO-------------------");
-        System.out.print("Ingrese nombre de usuario: ");
-        String nombreUs = scan.nextLine();
         System.out.print("Ingrese una contrasenia: ");
         String pass = scan.nextLine();
         System.out.print("Numero de telefono: ");
@@ -67,7 +65,7 @@ public class ViewCliente {
         System.out.print("Edad: ");
         Integer edad = scan.nextInt();
         scan.nextLine();
-        System.out.print("\nNumero de DNI (Sin puntos separadores): ");
+        System.out.print("Numero de DNI (Sin puntos separadores): ");
         String dni = scan.nextLine();
         return new Persona(nombre, apellido, fn, edad,dni);
 
@@ -86,7 +84,7 @@ public class ViewCliente {
         System.out.print("Codigo Postal: ");
         Integer codPostal = scan.nextInt();
         scan.nextLine();
-        System.out.print("\nCiudad: ");
+        System.out.print("Ciudad: ");
         String ciudad = scan.nextLine();
         System.out.print("Partido / Departamento Judicial: ");
         String partido = scan.nextLine();
@@ -109,7 +107,7 @@ public class ViewCliente {
     }
 
     public String starNombreUs(){
-        System.out.print("\nIngrese el nombre de Usuario a buscar: ");
+        System.out.print("\nIngrese el nombre de Usuario: ");
         return scan.nextLine();
     }
 
@@ -121,6 +119,17 @@ public class ViewCliente {
     public void mensjExito()
     {
         System.out.println("Realizado con exito....");
+    }
+
+    public void  usuarioExistente(){
+
+        System.out.println("Nombre de Usuario Existente.");
+    }
+
+    public void emailExistente(){
+
+        System.out.println("Email ingresado existente.");
+
     }
 
     public void mostrarUsuario (Cliente cliente)

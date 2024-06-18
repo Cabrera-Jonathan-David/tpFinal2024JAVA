@@ -1,9 +1,11 @@
 package com.TPfinal.Usuarios.model.entity;
 
 
+import com.TPfinal.Productos.model.entity.Producto;
 import com.TPfinal.Ventas.model.entity.Carrito;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Cliente extends User {
@@ -32,4 +34,19 @@ public class Cliente extends User {
     public void setHistorialCompras(Map<Integer, Carrito> historialCompras) {
         this.historialCompras = historialCompras;
     }
+
+    public void agregarAlHistorial(Carrito carrito){
+
+        this.historialCompras.put(carrito.getId(), carrito);
+
+    }
+
+    public void eliminarDelHistorial(Carrito carrito){
+
+        this.historialCompras.remove(carrito.getId());
+
+    }
+
+
+
 }
