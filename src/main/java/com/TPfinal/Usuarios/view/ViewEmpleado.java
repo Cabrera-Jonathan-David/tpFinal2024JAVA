@@ -76,7 +76,7 @@ public class ViewEmpleado {
     public Domicilio datosDomicilio(){
 
 
-        System.out.println("----------Datos de envio----------");
+        System.out.println("----------Datos de Domicilio----------");
         System.out.print("Nombre de la calle: ");
         String calle = scan.nextLine();
         System.out.print("Altura catastral: ");
