@@ -87,6 +87,19 @@ public class ControllerCliente {
         }
     }
 
+    public void mostrarAllClientes(){
+
+
+        for(Cliente cliente : repositorioCliente.getLista()){
+
+            viewCliente.mostrarUsuario(cliente);
+
+        }
+
+
+    }
+
+
     public void mostrarHistorialCompras(Cliente cliente) {
 
         System.out.println("Historial Compras");

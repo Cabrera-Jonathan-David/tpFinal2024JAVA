@@ -11,6 +11,14 @@ public class RepositoriesCliente implements GenericRepository<Cliente, String> {
 
     Set<Cliente> lista = new HashSet<>();
 
+    public Set<Cliente> getLista() {
+        return lista;
+    }
+
+    public void setLista(Set<Cliente> lista) {
+        this.lista = lista;
+    }
+
     @Override
     public void add(Cliente data) {
         lista.add(data);
@@ -27,7 +35,7 @@ public class RepositoriesCliente implements GenericRepository<Cliente, String> {
             for (Cliente cliente : lista) {
 
                 ///Puede ser Username
-                if (cliente.getEmail().equals(identificator)) {
+                if (cliente.getEmail().equals(identificator) || cliente.getNombreDeUsuario().equalsIgnoreCase(identificator)) {
                     return cliente;
                 }
             }

@@ -11,6 +11,14 @@ public class ProductoRepositories implements GenericRepository<Producto, Integer
 
     Set<Producto> lista=new HashSet<>();
 
+    public Set<Producto> getLista() {
+        return lista;
+    }
+
+    public void setLista(Set<Producto> lista) {
+        this.lista = lista;
+    }
+
     public ProductoRepositories() {
     }
 
