@@ -12,6 +12,15 @@ public class RepositoriesEmpleado implements GenericRepository<Empleado,String> 
 
     Set<Empleado> lista = new HashSet<>();
 
+
+    public Set<Empleado> getLista() {
+        return lista;
+    }
+
+    public void setLista(Set<Empleado> lista) {
+        this.lista = lista;
+    }
+
     @Override
     public void add(Empleado data) {
         lista.add(data);
@@ -26,7 +35,7 @@ public class RepositoriesEmpleado implements GenericRepository<Empleado,String> 
     public Empleado search(String identificator) {
         for (Empleado empleado : lista) {
 
-            if (empleado.getEmail().equals(identificator)) {
+            if (empleado.getEmail().equals(identificator) || empleado.getNombreDeUsuario().equalsIgnoreCase(identificator)) {
                 return empleado;
             }
         }

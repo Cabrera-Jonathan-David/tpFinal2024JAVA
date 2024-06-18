@@ -1,6 +1,7 @@
 package com.TPfinal.Usuarios.Controller;
 
 import com.TPfinal.Excepciones.EmptyDataExcepcion;
+import com.TPfinal.Usuarios.model.entity.Cliente;
 import com.TPfinal.Usuarios.model.entity.Domicilio;
 import com.TPfinal.Usuarios.model.entity.Empleado;
 import com.TPfinal.Usuarios.model.entity.Persona;
@@ -60,12 +61,16 @@ public class ControllerEmpleado {
         }
     }
 
-    public void mostrarTodosLosEmpleados() {
-        Iterator<Empleado> iterator = repository.pedirIterador();
-        while (iterator.hasNext()) {
-            Empleado empleado = iterator.next();
+    public void mostrarAllEmpleados(){
+
+
+        for(Empleado empleado : repository.getLista()){
+
             view.mostrarUsuario(empleado);
+
         }
+
+
     }
 
     public void modificarEmpleado() {
