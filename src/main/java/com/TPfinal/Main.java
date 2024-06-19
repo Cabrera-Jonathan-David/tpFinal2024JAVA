@@ -5,10 +5,8 @@ import com.TPfinal.Archivos.ArchivoAlimentos;
 import com.TPfinal.Archivos.ArchivoCliente;
 import com.TPfinal.Archivos.ArchivoElectrodomesticos;
 import com.TPfinal.Archivos.ArchivoEmpleados;
+import com.TPfinal.MenuPrincipal.Menu;
 import com.TPfinal.Productos.control.ProductoControler;
-import com.TPfinal.Productos.model.entity.Alimento;
-import com.TPfinal.Productos.model.entity.Electrodomestico;
-import com.TPfinal.Productos.model.entity.Producto;
 import com.TPfinal.Productos.model.repositorie.ProductoRepositories;
 import com.TPfinal.Productos.view.ProductoViews;
 import com.TPfinal.Usuarios.Controller.ControllerCliente;
@@ -24,9 +22,6 @@ import com.TPfinal.Usuarios.view.ViewEmpleado;
 public class Main {
     public static void main(String[] args) {
 
-        //ViewCliente viewCliente= new ViewCliente();
-        //RepositoriesCliente repositoriesCliente= new RepositoriesCliente();
-        //RepositoriesEmpleado repositoriesEmpleado= new RepositoriesEmpleado();
         ProductoRepositories productoRepositories= new ProductoRepositories();
         ProductoViews productoViews= new ProductoViews();
         ProductoControler productoControler= new ProductoControler(productoViews,productoRepositories);
@@ -42,12 +37,23 @@ public class Main {
         ArchivoCliente archivoCliente = new ArchivoCliente(repositoriesCliente);
 
 
-       controllerCliente.mostrarAllClientes();
-       controllerCliente.mostrarHistorialCompras(repositoriesCliente.search(viewCliente.starMail()));
+        //controllerCliente.mostrarAllClientes();
+        //controllerCliente.mostrarHistorialCompras(repositoriesCliente.search(viewCliente.starMail()));
 
-
+        archivoAlimentos.loadArchivo();
+        archivoCliente.loadArchivo();
+        archivoEmpleados.loadArchivo();
+        archivoElectrodomesticos.loadArchivo();
 
         archivoEmpleados.saveArchivo();
+
+
+        Menu menu = new Menu();
+        /// la clase menú, más adelante, tendrá diversos
+        /// métodos de control de frames a modo de estructura switch
+        menu.inicMenuPrincipal();
+
+
 
 
     }
