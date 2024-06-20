@@ -65,7 +65,7 @@ public class ProductoViews {
 
     public Electrodomestico crearProductoHogar()throws EmptyDataExcepcion{
         System.out.println("\n------------------------------------------------------------");
-        System.out.println(" ----------------CREACION DE Electrodomestico--------------");
+        System.out.println(" ----------------CREACION DE ELECTRODOMESTICO--------------");
         System.out.println("Ingrese el nombre del producto");
         String nombre= scann.nextLine();
         System.out.println("Ingrese el precio del producto");
@@ -88,7 +88,7 @@ public class ProductoViews {
 
     public Alimento modificar(Alimento alimento){
         System.out.println("\n------------------------------------------------------------");
-        System.out.println("-------------------MODIFICAR DE PERECEDERO-------------------");
+        System.out.println("-------------------MODIFICAR DE ALIMENTO-------------------");
         System.out.println("Ingrese el nuevo nombre del producto");
         alimento.setNombre(scann.nextLine());
         System.out.println("Ingrese el nuevo precio del producto");
@@ -99,7 +99,7 @@ public class ProductoViews {
         System.out.println("Ingrese el stock inicial del producto");
         alimento.setStockDisponible(scann.nextInt());
         scann.nextLine();
-        System.out.println("Ingrese el vencimiento del producto");
+        System.out.println("Ingrese el vencimiento del producto(dd/mm/aaaa)");
         alimento.setVencimiento(scann.nextLine());
 
         return alimento;

@@ -4,7 +4,7 @@ package com.TPfinal.Usuarios.model.entity;
 
 import java.util.Objects;
 
-public class User {
+public abstract class User {
 
     private String nombreDeUsuario;
     private String passDeUsuario;
