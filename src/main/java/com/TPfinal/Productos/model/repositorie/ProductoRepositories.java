@@ -63,4 +63,20 @@ public class ProductoRepositories implements GenericRepository<Producto, Integer
     public Iterator<Producto> pedirIterador() {
         return lista.iterator();
     }
-}
+
+    public Integer max_ID(){
+
+        int maxId = 0;
+
+        for (Producto producto : lista) {
+            if (producto.getIdProducto() > maxId) {
+                maxId = producto.getIdProducto();
+            }
+        }
+
+        return maxId;
+    }
+
+
+
+    }

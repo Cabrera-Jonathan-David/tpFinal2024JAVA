@@ -56,7 +56,7 @@ public class ProductoControler {
     }
 
     public void modificarProducto(){
-        Producto productoprueba= productoRepositories.search(productoViews.solicitarEleccion());
+        Producto productoprueba= productoRepositories.search(productoViews.solicitarIDEleccion());
 
         if (productoprueba instanceof Electrodomestico) {
             productoprueba=productoViews.modificar((Electrodomestico) productoprueba);

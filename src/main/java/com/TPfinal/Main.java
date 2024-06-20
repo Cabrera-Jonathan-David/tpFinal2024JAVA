@@ -40,13 +40,17 @@ public class Main {
         RepositoriesCliente repositoriesCliente = new RepositoriesCliente();
         ControllerCliente controllerCliente = new ControllerCliente(viewCliente, repositoriesCliente);
         ArchivoCliente archivoCliente = new ArchivoCliente(repositoriesCliente);
+        new Producto(productoRepositories.max_ID()); // IMPORTANTE QUE ESTE ANTES DE CUALQUIER COSA...........
+//-------------------------------------------------------------------------------------------------------------
 
 
-       controllerCliente.mostrarAllClientes();
-       controllerCliente.mostrarHistorialCompras(repositoriesCliente.search(viewCliente.starMail()));
 
 
+       //SAVE ARCHIVOS
 
+        archivoElectrodomesticos.saveArchivo();
+        archivoCliente.saveArchivo();
+        archivoAlimentos.saveArchivo();
         archivoEmpleados.saveArchivo();
 
 
