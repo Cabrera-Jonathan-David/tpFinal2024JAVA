@@ -4,7 +4,7 @@ public class Electrodomestico extends Producto{
 
     public Integer tiempoGarantia;
 
-    public Electrodomestico(String nombre, Integer precio, String marca, Integer stockDisponible, Integer tiempoGarantia) {
+    public Electrodomestico(String nombre, Double precio, String marca, Integer stockDisponible, Integer tiempoGarantia) {
         super(nombre, precio, marca, stockDisponible);
         this.tiempoGarantia = tiempoGarantia;
     }
