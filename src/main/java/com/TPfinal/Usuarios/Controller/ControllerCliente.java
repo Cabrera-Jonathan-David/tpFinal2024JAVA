@@ -99,7 +99,6 @@ public class ControllerCliente {
 
     }
 
-
     public void mostrarHistorialCompras(Cliente cliente) {
 
         System.out.println("Historial Compras");
@@ -115,13 +114,23 @@ public class ControllerCliente {
             }
             System.out.println("Total pagado: " + entry.getValue().getPrecioTotal());
 
-    }
+         }
 
 
     }
 
+    public Cliente loginCliente() {
+        String nombreUs = viewCliente.starNombreUs();
+        String pass = viewCliente.pedirContrasenia();
 
-
+        Cliente clienteEncontrado = repositorioCliente.search(nombreUs);
+        if (clienteEncontrado != null && clienteEncontrado.getPassDeUsuario().equals(pass)) {
+            return clienteEncontrado;
+        } else {
+            viewCliente.mostrarMensajeLoginFallido();
+            return null;
+        }
+    }
 
 
 

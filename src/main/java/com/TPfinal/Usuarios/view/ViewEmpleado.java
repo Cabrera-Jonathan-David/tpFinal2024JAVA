@@ -134,6 +134,15 @@ public class ViewEmpleado {
 
     }
 
+    public String pedirContrasenia() {
+        System.out.print("Ingrese la contraseña: ");
+        return scan.nextLine();
+    }
+
+    public void mostrarMensajeLoginFallido() {
+        System.out.println("Usuario o contraseña incorrectos. Por favor, intente nuevamente.");
+    }
+
     public void mostrarUsuario (Empleado empleado)
     {
         System.out.println("------------------------------------------------");
