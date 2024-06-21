@@ -94,6 +94,18 @@ public class ControllerEmpleado {
         }
     }
 
+    public Empleado loginEmpleado() {
+        String nombreUs = view.starNombreUs();
+        String pass = view.pedirContrasenia();
+
+        Empleado empleadoEncontrado = repository.search(nombreUs);
+        if (empleadoEncontrado != null && empleadoEncontrado.getPassDeUsuario().equals(pass)) {
+            return empleadoEncontrado;
+        } else {
+            view.mostrarMensajeLoginFallido();
+            return null;
+        }
+    }
 
 
 

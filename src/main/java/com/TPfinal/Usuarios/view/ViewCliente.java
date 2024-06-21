@@ -110,6 +110,14 @@ public class ViewCliente {
         System.out.print("\nIngrese el nombre de Usuario: ");
         return scan.nextLine();
     }
+    public String pedirContrasenia() {
+        System.out.print("Ingrese la contraseña: ");
+        return scan.nextLine();
+    }
+
+    public void mostrarMensajeLoginFallido() {
+        System.out.println("Usuario o contraseña incorrectos. Por favor, intente nuevamente.");
+    }
 
     public void usuarioInexistente()
     {
