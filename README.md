@@ -7,4 +7,6 @@
 
 17/6 Investigacion SWING para interaces graficas - CRUD Productos 
 
-18/6
+18/6 Investigacion SWING para interfaces grafica
+
+19/6 - 22/6 Refactorizacion del codigo trabajado por consola a aplicable ventanas de SWING
