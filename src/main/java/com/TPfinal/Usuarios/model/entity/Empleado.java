@@ -12,6 +12,13 @@ public class Empleado extends User {
         this.fechaContratacion = fechaContratacion;
     }
 
+    public Empleado() {
+    }
+
+    public Empleado(String nombreDeUsuario, String passDeUsuario, String email, Persona persona, Domicilio domicilio) {
+        super(nombreDeUsuario, passDeUsuario, email, persona, domicilio);
+    }
+
     public String getCuil() {
         return cuil;
     }

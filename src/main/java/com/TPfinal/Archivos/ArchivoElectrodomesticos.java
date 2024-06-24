@@ -1,5 +1,17 @@
 package com.TPfinal.Archivos;
 
+import com.TPfinal.Productos.model.entity.Electrodomestico;
+import com.TPfinal.Productos.model.entity.Producto;
+import com.TPfinal.Productos.model.repositorie.ProductoRepositories;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 import com.TPfinal.Excepciones.ArchivoNoEncontrado;
 import com.TPfinal.Productos.model.entity.Alimento;
 import com.TPfinal.Productos.model.entity.Electrodomestico;
@@ -44,9 +56,16 @@ public class ArchivoElectrodomesticos {
             }
 
         } catch (ArchivoNoEncontrado e) {
-            e.getMessage();
-        } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+        } catch (IOException f) {
+
+            try {
+                throw new IOException("Hubo un error de entrada y salida de datos en la carga del Archivo" + f);
+
+            } catch (IOException e) {
+
+                throw new RuntimeException("Surgio un Run Time Excepcion " + e);
+            }
         }
 
     }
@@ -63,8 +82,14 @@ public class ArchivoElectrodomesticos {
                 }
             }
             gson.toJson(electrodomesticos, w);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException f) {
+            try {
+                throw new IOException("Hubo un error de entrada y salida de datos mientras se guardaba en el Archivo" + f);
+
+            } catch (IOException e) {
+
+                throw new RuntimeException("Surgio un Run Time Excepcion " + e);
+            }
         }
 
 

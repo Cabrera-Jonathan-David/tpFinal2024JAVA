@@ -18,6 +18,9 @@ public class Producto {
         this.idProducto= ++contadorId;
     }
 
+    public Producto() {
+    }
+
     public Producto(Integer idProducto) {
         contadorId =idProducto;
     }

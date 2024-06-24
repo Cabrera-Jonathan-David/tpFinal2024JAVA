@@ -1,78 +1,55 @@
 package com.TPfinal.Productos.control;
 
-import com.TPfinal.Excepciones.EmptyDataExcepcion;
 import com.TPfinal.Productos.model.entity.Alimento;
 import com.TPfinal.Productos.model.entity.Electrodomestico;
 import com.TPfinal.Productos.model.entity.Producto;
 import com.TPfinal.Productos.model.repositorie.ProductoRepositories;
-import com.TPfinal.Productos.view.ProductoViews;
 
 import java.util.Iterator;
 
 public class ProductoControler {
-    ProductoViews productoViews;
     ProductoRepositories productoRepositories;
 
-    public ProductoControler(ProductoViews productoViews, ProductoRepositories productoRepositories) {
-        this.productoViews = productoViews;
+    public ProductoControler(ProductoRepositories productoRepositories) {
         this.productoRepositories = productoRepositories;
     }
 
+    public ProductoRepositories getProductoRepositories() {
+        return productoRepositories;
+    }
 
-    public void nuevoProducto(){
-        System.out.println();
-        System.out.println("=================================================");
-        System.out.println("        Que tipo de producto desea añadir"+ "\n" +
-                            "        1: Perecedero"+ "\n" +
-                            "        2: Electrodomestico");
-        try {
-            Integer eleccion = productoViews.solicitarEleccion();
+    public Producto obtenerProducto(String nombre) {
+        return productoRepositories.search(nombre);
+    }
 
-            if (eleccion == 1) {
-                productoRepositories.add(productoViews.crearProductoPerecedero());
-            } else if (eleccion == 2) {
-                productoRepositories.add(productoViews.crearProductoHogar());
-            }else{
-                System.out.println("Opcion incorrecta");
+    public void modificarStock(Producto producto, Integer extra){
+
+        producto.setStockDisponible(producto.getStockDisponible()+ extra);
+        productoRepositories.update(producto);
+
+    }
+
+    public Producto comprobarExistencia(String nombre) {
+        Iterator<Producto> itProd = productoRepositories.pedirIterador();
+        while (itProd.hasNext()) {
+            Producto producto = itProd.next();
+            if (producto.getNombre().equals(nombre)) {
+                return producto;
             }
-        }catch (EmptyDataExcepcion error){
-            System.out.println(error.getMessage());
+
         }
+        return null;
+    }
+
+    public Iterator<Producto> iterator() {
+        return productoRepositories.pedirIterador();
 
     }
 
-    public void mostrarAll(){
-
-        Iterator<Producto>  itProd= productoRepositories.pedirIterador();
-        while(itProd.hasNext()){
-            Producto productoprueba= itProd.next();
-            if (productoprueba instanceof Electrodomestico) {
-                productoViews.mostrar((Electrodomestico) productoprueba);
-            }else{
-                productoViews.mostrar((Alimento) productoprueba);
-            }
-        }
-
-    }
-
-    public void modificarProducto(){
-        Producto productoprueba= productoRepositories.search(productoViews.solicitarIDEleccion());
-
-        if (productoprueba instanceof Electrodomestico) {
-            productoprueba=productoViews.modificar((Electrodomestico) productoprueba);
-        }else if(productoprueba instanceof Alimento){
-            productoprueba=productoViews.modificar((Alimento) productoprueba);
-        }else{
-            System.out.println("No existe el producto a modificar");
-        }
-    }
-
-    public void eliminarProducto(){
-        Producto productoprueba= productoRepositories.search(productoViews.solicitarEleccion());
-        if(productoprueba!=null){
-            productoRepositories.delete(productoprueba);
-        }else {
-            System.out.println("No exsite el producto buscado para eliminar");
-        }
-    }
 }
+
+
+
+
+
+

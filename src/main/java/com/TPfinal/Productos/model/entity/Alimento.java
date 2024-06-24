@@ -8,6 +8,9 @@ public class Alimento extends Producto{
         this.vencimiento = vencimiento;
     }
 
+    public Alimento() {
+    }
+
     public String getVencimiento() {
         return vencimiento;
     }
