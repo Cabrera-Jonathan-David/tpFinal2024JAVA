@@ -10,3 +10,6 @@
 18/6 Investigacion SWING para interfaces grafica
 
 19/6 - 22/6 Refactorizacion del codigo trabajado por consola a aplicable ventanas de SWING
+
+23/6 Depuracion y limpieza de codigo
+
