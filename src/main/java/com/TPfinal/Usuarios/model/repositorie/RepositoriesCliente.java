@@ -66,6 +66,14 @@ public class RepositoriesCliente implements GenericRepository<Cliente, String> {
         return lista.iterator();
     }
 
+    public Cliente buscarPorNombre(String nombre){
 
+        for(Cliente cliente : lista){
+            if(cliente.getNombreDeUsuario().equals(nombre)){
+                return cliente;
+            }
+        }
+        return null;
+    }
 }
 

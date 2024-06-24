@@ -20,6 +20,9 @@ public abstract class User {
         this.domicilio = domicilio;
     }
 
+    public User() {
+    }
+
     public String getNombreDeUsuario() {
         return nombreDeUsuario;
     }

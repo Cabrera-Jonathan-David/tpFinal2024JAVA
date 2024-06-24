@@ -41,9 +41,16 @@ public class ArchivoEmpleados {
             }
 
         }catch (ArchivoNoEncontrado e){
-            e.getMessage();
+            System.out.println(e.getMessage());
         }catch (IOException f){
-            f.printStackTrace();
+
+            try {
+                throw new IOException("Hubo un error de entrada y salida de datos en la carga del Archivo" + f);
+
+            } catch (IOException e) {
+
+                throw new RuntimeException("Surgio un Run Time Excepcion " + e);
+            }
         }
     }
 
@@ -53,8 +60,14 @@ public class ArchivoEmpleados {
 
             gson.toJson(repositoriesEmpleado.getLista(), w);
 
-        }catch(IOException e){
-            e.printStackTrace();
+        }catch(IOException f){
+            try {
+                throw new IOException("Hubo un error de entrada y salida de datos mientras se guardaba en el Archivo" + f);
+
+            } catch (IOException e) {
+
+                throw new RuntimeException("Surgio un Run Time Excepcion " + e);
+            }
         }
 
     }

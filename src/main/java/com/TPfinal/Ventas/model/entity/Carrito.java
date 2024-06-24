@@ -19,6 +19,10 @@ public class Carrito {
         this.precioTotal = precioTotal;
     }
 
+    public Carrito(Integer id) {
+        contador = id;
+    }
+
     public Integer getId() {
         return id;
     }

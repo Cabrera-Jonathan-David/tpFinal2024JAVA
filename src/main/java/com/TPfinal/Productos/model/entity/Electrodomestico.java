@@ -9,6 +9,9 @@ public class Electrodomestico extends Producto{
         this.tiempoGarantia = tiempoGarantia;
     }
 
+    public Electrodomestico() {
+    }
+
     public Integer getTiempoGarantia() {
         return tiempoGarantia;
     }

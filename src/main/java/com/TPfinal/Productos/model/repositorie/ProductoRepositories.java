@@ -42,6 +42,15 @@ public class ProductoRepositories implements GenericRepository<Producto, Integer
         return null;
     }
 
+    public Producto search(String nombre){
+        for (Producto producto : lista) {
+            if (producto.getNombre().equals(nombre)) {
+                return producto;
+            }
+        }
+        return null;
+    }
+
     @Override
     public boolean update(Producto data) {
         for (Producto producto : lista) {
